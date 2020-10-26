@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
 .main-content{
 	width: 100vw;
 	height: 100vh;
@@ -45,9 +52,6 @@
 }
 .carousel button svg{
 	transition: all 0.4s;
-}
-.carousel button:hover{
-	border: 2px solid #727272;
 }
 .carousel button:hover svg{
 	fill: #727272;
