@@ -1,30 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
-
-
-/*
-#welcome{
-	background-color: #EFFBFF;
-	color: #005792;
-}
-#download{
-	background-color: #00BBF0;
-}
-#about{
-	background-color: #005792;
-}
-#group{
-	background-color: #005792;
-}
-#contact{
-	background-color: #00204A;
-}
-*/
-
-
-
-
-
 /* ---------- TEMPLATE ---------- */
 *{
 	margin: 0;
@@ -37,30 +12,53 @@ body{
 	scroll-behavior: smooth;
 }
 
-a{
+a{text-decoration: none;}
+
+a.high,
+a.down{
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 70px;
-	height: 70px;
+	width: 60px;
+	height: 60px;
 	border-radius: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-a svg{
+a.down span.b,
+a.down span.c,
+a.high span.c,
+a.high span.b{
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+
+a.high:hover span.b,
+a.down:hover span.b{
+	animation: expandB 1.5s infinite;
+}
+
+a.high:hover span.c,
+a.down:hover span.c{
+	animation: expandC 1.5s infinite;
+}
+
+a.high svg,
+a.down svg{
 	width: 30px;
 	height: 30px;
 }
 
-a.high{
-	top: 40px;
-}
-
-a.down{
-	bottom: 40px;
-}
+a.high{top: 40px;}
+a.down{bottom: 40px;}
 
 .next-link{
 	position: absolute;
@@ -82,8 +80,6 @@ div.sec{
 
 
 
-
-
 /* ---------- SECTION ---------- */
 /* --- WELCOME --- */
 	#welcome{
@@ -91,24 +87,9 @@ div.sec{
 		color: #005792;
 	}
 
-	#welcome a{
-		background-color: #00BBF0;
-	}
+	#welcome a{background-color: #00BBF0;}
 
-	#welcome a svg{
-		stroke: #EFFBFF;
-	}
-
-	#welcome a span{
-		position: absolute;
-		z-index: -1;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 100%;
-		height: 100%;
-		border-radius: 100%;
-	}
+	#welcome a svg{stroke: #EFFBFF;}
 
 	#welcome a span.b{
 		border-width: 2px;
@@ -118,14 +99,6 @@ div.sec{
 	#welcome a span.c{
 		border-width: 1px;
 		background-color: #00BBF050;
-	}
-
-	#welcome a:hover span.b{
-		animation: expandB 1.5s infinite;
-	}
-
-	#welcome a:hover span.c{
-		animation: expandC 1.5s infinite;
 	}
 
 	#welcome .getstarted{
@@ -141,9 +114,7 @@ div.sec{
 		margin-bottom: 20px;
 	}
 
-	#welcome .getstarted p{
-		font-size: 30px;
-	}
+	#welcome .getstarted p{font-size: 28px;}
 
 /* --- DOWNLOAD --- */
 	#download{
@@ -151,13 +122,68 @@ div.sec{
 		color: #EFFBFF;
 	}
 
-	#download a{
-		background-color: #EFFBFF;
+	#download a.high,
+	#download a.down{background-color: #EFFBFF;}
+
+	#download a svg{stroke: #00BBF0;}
+
+	#download a span.b{
+		border-width: 2px;
+		background-color: #EFFBFF50;
 	}
 
-	#download a svg{
-		stroke: #00BBF0;
+	#download a span.c{
+		border-width: 1px;
+		background-color: #EFFBFF75;
 	}
+
+	#download .download-link{
+		height: 320px;
+		width: 680px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-80%, -50%);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	#download .download-link h1{font-size: 40px;}
+
+	#download .download-link a .download-btn{
+		width: 550px;
+		height: 80px;
+		border-radius: 5px;
+		font-size: 25px;
+		background-color: #005792;
+		color: #EFFBFF;
+		position: relative;
+	}
+
+	#download .download-link a .download-btn svg{
+		position: absolute;
+		left: 26px;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 50px;
+		width: 50px;
+		stroke: none;
+		fill: #EFFBFF;
+	}
+
+	#download .download-link a .download-btn p{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	#download .download-link a .download-btn p.version{right: 40px;}
+
+	#download .download-link a .download-btn p:not(.version){left: 100px;}
+
+
 
 /* --- ABOUT --- */
 	#about{
@@ -178,29 +204,32 @@ div.sec{
 	}
 
 
-@keyframes expandB{
-	0%{
-		width: 100%;
-		height: 100%;
-		opacity: 1;
-	}
-	100%{
-		width: 150%;
-		height: 150%;
-		opacity: 0;
-	}
-}
 
-@keyframes expandC{
-	0%{
-		width: 100%;
-		height: 100%;
-		opacity: 1;
+/* ---------- ANIMATIONS ---------- */
+/* --- NAV-LINK HOVER --- */
+	@keyframes expandB{
+		0%{
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+		}
+		100%{
+			width: 150%;
+			height: 150%;
+			opacity: 0;
+		}
 	}
-	100%{
-		width: 200%;
-		height: 200%;
-		opacity: 0;
+	@keyframes expandC{
+		0%{
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+		}
+		100%{
+			width: 200%;
+			height: 200%;
+			opacity: 0;
+		}
 	}
-}
 
+/* ---  --- */
