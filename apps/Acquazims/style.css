@@ -6,13 +6,19 @@
 	padding: 0;
 }
 
+*:focus{
+	outline: none;
+}
+
 body{
 	font-family: 'Comfortaa', cursive;
 	overflow: hidden;
 	scroll-behavior: smooth;
 }
 
-a{text-decoration: none;}
+a{
+	text-decoration: none;
+}
 
 a.high,
 a.down{
@@ -42,12 +48,16 @@ a.high span.b{
 }
 
 a.high:hover span.b,
-a.down:hover span.b{
+a.down:hover span.b,
+a.high:focus span.b,
+a.down:focus span.b{
 	animation: expandB 1.5s infinite;
 }
 
 a.high:hover span.c,
-a.down:hover span.c{
+a.down:hover span.c,
+a.high:focus span.c,
+a.down:focus span.c{
 	animation: expandC 1.5s infinite;
 }
 
@@ -57,15 +67,11 @@ a.down svg{
 	height: 30px;
 }
 
-a.high{top: 40px;}
-a.down{bottom: 40px;}
-
-.next-link{
-	position: absolute;
-	bottom: 140px;
-	font-size: 30px;
-	left: 50%;
-	transform: translateX(-50%);
+a.high{
+	top: 40px;
+}
+a.down{
+	bottom: 40px;
 }
 
 div.sec{
@@ -87,9 +93,13 @@ div.sec{
 		color: #005792;
 	}
 
-	#welcome a{background-color: #00BBF0;}
+	#welcome a{
+		background-color: #00BBF0;
+	}
 
-	#welcome a svg{stroke: #EFFBFF;}
+	#welcome a svg{
+		stroke: #EFFBFF;
+	}
 
 	#welcome a span.b{
 		border-width: 2px;
@@ -105,16 +115,26 @@ div.sec{
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-100%, -50%);
+		transform: translate(-100%, -75%);
 		width: 580px;
 	}
 
 	#welcome .getstarted h1{
 		font-size: 70px;
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 	}
 
-	#welcome .getstarted p{font-size: 28px;}
+	#welcome .getstarted p{
+		font-size: 28px;
+	}
+
+	#welcome .next-link{
+		position: absolute;
+		bottom: 130px;
+		font-size: 30px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
 /* --- DOWNLOAD --- */
 	#download{
@@ -123,9 +143,13 @@ div.sec{
 	}
 
 	#download a.high,
-	#download a.down{background-color: #EFFBFF;}
+	#download a.down{
+		background-color: #EFFBFF;
+	}
 
-	#download a svg{stroke: #00BBF0;}
+	#download a svg{
+		stroke: #00BBF0;
+	}
 
 	#download a span.b{
 		border-width: 2px;
@@ -150,9 +174,11 @@ div.sec{
 		justify-content: space-between;
 	}
 
-	#download .download-link h1{font-size: 40px;}
+	#download .download-link h1{
+		font-size: 40px;
+	}
 
-	#download .download-link a .download-btn{
+	#download .download-link .link-btn .download-btn{
 		width: 550px;
 		height: 80px;
 		border-radius: 5px;
@@ -160,11 +186,12 @@ div.sec{
 		background-color: #005792;
 		color: #EFFBFF;
 		position: relative;
+		transition: all 0.5s;
 	}
 
-	#download .download-link a .download-btn svg{
+	#download .download-link .link-btn .download-btn svg{
 		position: absolute;
-		left: 26px;
+		left: 25px;
 		top: 50%;
 		transform: translateY(-50%);
 		height: 50px;
@@ -173,15 +200,24 @@ div.sec{
 		fill: #EFFBFF;
 	}
 
-	#download .download-link a .download-btn p{
+	#download .download-link .link-btn .download-btn p{
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
 	}
 
-	#download .download-link a .download-btn p.version{right: 40px;}
+	#download .download-link .link-btn .download-btn p.version{
+		right: 40px;
+	}
 
-	#download .download-link a .download-btn p:not(.version){left: 100px;}
+	#download .download-link .link-btn .download-btn p:not(.version){
+		left: 100px;
+	}
+
+	#download .download-link .link-btn:hover .download-btn{
+		background-color: #00204A;
+	}
+
 
 
 
@@ -191,16 +227,83 @@ div.sec{
 		color: #EFFBFF;
 	}
 
+	#about a.high,
+	#about a.down{
+		background-color: #EFFBFF;
+	}
+
+	#about a svg{
+		stroke: #005792;
+	}
+
+	#about a span.b{
+		border-width: 2px;
+		background-color: #EFFBFF50;
+	}
+
+	#about a span.c{
+		border-width: 1px;
+		background-color: #EFFBFF75;
+	}
+
+	/* .parallax{
+		height: 100vh;
+		background-image: url('media/image/modernismo_peruibe.png');
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	} */
+
 /* --- GROUP --- */
 	#group{
 		background-color: #005792;
 		color: #EFFBFF;
 	}
 
+	#group a.high,
+	#group a.down{
+		background-color: #EFFBFF;
+	}
+
+	#group a svg{
+		stroke: #005792;
+	}
+
+	#group a span.b{
+		border-width: 2px;
+		background-color: #EFFBFF50;
+	}
+
+	#group a span.c{
+		border-width: 1px;
+		background-color: #EFFBFF75;
+	}
+
+
+
 /* --- CONTACT --- */
 	#contact{
 		background-color: #00204A;
 		color: #EFFBFF;
+	}
+
+	#contact a.high{
+		background-color: #EFFBFF;
+	}
+
+	#contact a svg{
+		stroke: #00204A;
+	}
+
+	#contact a span.b{
+		border-width: 2px;
+		background-color: #EFFBFF50;
+	}
+
+	#contact a span.c{
+		border-width: 1px;
+		background-color: #EFFBFF75;
 	}
 
 
