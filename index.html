@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Samuel Facchetti de Matos</title>
-		<link rel="stylesheet" href="style/style.css">
-	</head>
-	<body>
-        
-	</body>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo de Seleção de Índice</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			width: 100%;
+			height: 100vh;
+		}
+		.content{
+			height: 411px;
+			border-radius: 10px;
+			position: absolute;
+			display: flex;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.bcc{
+			width: 100%;
+			height: 100vh;
+		}
+		button{
+			width: 292px;
+			height: 411px;
+			font-size: 40px;
+			background-color: #eb1259;
+			border: none;
+			color: #FFFFFF;
+			border-radius: 10px 0 0 10px;
+			font-family: "Bebas Neue", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+		}
+		button:hover{
+			cursor: pointer;
+			background-color: #9a222b;
+			font-size: 44px;
+			transition: ease-in-out 1s;
+		}
+		#resultado {
+			width: 308px;
+			height: 411px;
+			font-weight: bold;
+			object-fit: cover;
+			border-radius: 0 10px 10px 0;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="content">
+		<button id="botao">SELECT AGENT</button>
+		<img id="resultado" src="agents/index.jpg" alt="">
+	</div>
+
+	<img class="bcc" src="bci.webp" alt="" srcset="">
+	<script>
+		const agentes = [
+			"astra.webp",
+			"breach.webp",
+			"brimstone.webp",
+			"chamber.webp",
+			"clove.webp",
+			"cypher.webp",
+			"deadlock.webp",
+			"fade.webp",
+			"gekko.webp",
+			"harbor.webp",
+			"iso.webp",
+			"jett.webp",
+			"kayo.webp",
+			"killjoy.webp",
+			"neon.webp",
+			"omen.webp",
+			"phoenix.webp",
+			"raze.webp",
+			"reyna.webp",
+			"sage.webp",
+			"skye.webp",
+			"sova.webp",
+			"viper.webp",
+			"vyse.webp",
+			"yoru.webp"
+		];
+
+		document.getElementById('botao').addEventListener('click', function() {
+			const indiceAleatorio = Math.floor(Math.random() * agentes.length);
+			document.getElementById("resultado").src = "agents/" + agentes[indiceAleatorio];
+		});
+	</script>
+
+</body>
 </html>
